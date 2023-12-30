@@ -23,7 +23,7 @@ export default function Home() {
       )}
 
       <Title>{companyDetails.name}</Title>
-      <h1>Hello world!</h1>
+      <h1>Hummingbird Technical & Cleaning Services</h1>
       <Counter />
       <p>{companyDetails.description}</p>
       <p>
