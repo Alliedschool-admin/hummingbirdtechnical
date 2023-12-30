@@ -26,43 +26,50 @@ export default function Home() {
     <main>
       {CONTEXT === "deploy-preview" && (
         <>
-          <Title>Hello! This is a preview version of our site.</Title>
+          <Title>Preview Version</Title>
           <p>The branch is {BRANCH}</p>
         </>
       )}
 
       <Title>{companyDetails.name}</Title>
-      <h1>Hello world!</h1>
+      <h1>Welcome to {companyDetails.name}</h1>
       <Counter />
-      <p>{companyDetails.description}</p>
-      <p>
-        Visit{" "}
-        <a href={companyDetails.website} target="_blank">
-          Hummingbird Technical & Cleaning Services
-        </a>{" "}
-        to learn more about our services.
-      </p>
 
-      {/* Add the plumbing services section below */}
-      <h2>Our Plumbing Services</h2>
-      <ul>
+      <section>
+        <h2>About Us</h2>
+        <p>{companyDetails.description}</p>
+        <p>
+          Visit{" "}
+          <a href={companyDetails.website} target="_blank">
+            {companyDetails.name}
+          </a>{" "}
+          to learn more about our services.
+        </p>
+      </section>
+
+      <section>
+        <h2>Our Plumbing Services</h2>
+        <ul>
+          {plumbingServices.map((service, index) => (
+            <li key={index}>
+              <a href={`#${service.replace(/\s+/g, "-").toLowerCase()}`}>
+                {service}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Details of Plumbing Services</h2>
         {plumbingServices.map((service, index) => (
-          <li key={index}>
-            <a href={`#${service.replace(/\s+/g, "-").toLowerCase()}`}>
-              {service}
-            </a>
-          </li>
+          <div key={index} id={service.replace(/\s+/g, "-").toLowerCase()}>
+            <h3>{service}</h3>
+            {/* Add details for each plumbing service here */}
+            <p>Details for {service}.</p>
+          </div>
         ))}
-      </ul>
-
-      <h2>Details of Plumbing Services:</h2>
-      {plumbingServices.map((service, index) => (
-        <div key={index} id={service.replace(/\s+/g, "-").toLowerCase()}>
-          <h3>{service}</h3>
-          {/* Add details for each plumbing service here */}
-          <p>Details for {service}.</p>
-        </div>
-      ))}
+      </section>
     </main>
   );
 }
