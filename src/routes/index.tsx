@@ -2,17 +2,36 @@ import { Title } from "solid-start";
 import Counter from "~/components/Counter";
 
 export default function Home() {
+  const companyDetails = {
+    name: "Hummingbird Technical & Cleaning Services",
+    location: "UAE",
+    description:
+      "Your trusted partner for top-notch plumbing services in the UAE. With a commitment to excellence and customer satisfaction, we have established ourselves as a leading provider in the industry.",
+    website: "https://hummingbirdtechnical.com",
+  };
+
+  const CONTEXT = "deploy-preview"; // Replace with your actual context
+  const BRANCH = "main"; // Replace with your actual branch
+
   return (
     <main>
-      <Title>Hello World</Title>
+      {CONTEXT === "deploy-preview" && (
+        <>
+          <Title>Hello! This is a preview version of our site.</Title>
+          <p>The branch is {BRANCH}</p>
+        </>
+      )}
+
+      <Title>{companyDetails.name}</Title>
       <h1>Hello world!</h1>
       <Counter />
+      <p>{companyDetails.description}</p>
       <p>
         Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
+        <a href={companyDetails.website} target="_blank">
+          {companyDetails.website}
         </a>{" "}
-        to learn how to build SolidStart apps.
+        to learn more about our services.
       </p>
     </main>
   );
