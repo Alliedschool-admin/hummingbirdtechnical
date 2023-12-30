@@ -17,8 +17,8 @@ export default function Home() {
     <main>
       {CONTEXT === "deploy-preview" && (
         <>
-          <Title>Hello! This is a preview version of our site.</Title>
-          <p>The branch is {BRANCH}</p>
+          <Title>Hummingbird Technical & Cleaning Services UAE.</Title>
+
         </>
       )}
 
