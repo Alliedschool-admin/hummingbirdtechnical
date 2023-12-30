@@ -28,9 +28,9 @@ export default function Home() {
       <p>{companyDetails.description}</p>
       <p>
         Visit{" "}
-        <a href={companyDetails.website} target="_blank">
-          {companyDetails.website}
-        </a>{" "}
+       <a href={companyDetails.website} target="_blank">
+  Hummingbird Technical & Cleaning Services
+</a>
         to learn more about our services.
       </p>
     </main>
